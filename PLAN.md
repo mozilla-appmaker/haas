@@ -39,12 +39,12 @@ Haas's architecture is to have an HTTP endpoint to provision a new hoodie instan
                     +-----------------------------------------+--------------------------------+---+
 ```
 
-The |/provision| endpoint sends a secret in the payload which is pre-arranged, so that haas only accepts provisioning requests from known parties.  |/provision| requires in addition a triplet of (username, emailaddress, and appname).  Given these three, a container named (<username>-<app>) is spun up, and the container is told which ports to use to map to the ports hoodie provides.
+The `/provision` endpoint sends a secret in the payload which is pre-arranged, so that haas only accepts provisioning requests from known parties.  `/provision` requires in addition a triplet of (`username`, `emailaddress`, and `appname`).  Given these three, a container named (`<username>-<app>`) is spun up, and the container is told which ports to use to map to the ports hoodie provides.
 
 TODO: figure out how the hoodie-server process and/or the couchdb instance are told that the 'admin' is the user, as we effectively need SSO from the appmaker designer through to the hoodie/couch processes.
 
-The "ship manifest" database is told to record the mapping between (username, app) and either docker names or ports.
+The "ship manifest" database is told to record the mapping between (`username`, `app`) and either docker names or ports.
 
-The "domain-to-unique-port-mapper" listens to http requests on a wildcard domain (e.g. *.hoodies.moz.whatever), and maps (app.user.subdomain:80) requests to exist-only-on-the-container-ship ports which docker creates, and which map inside the containers to :80 or whatever port hoodie talks to.  Jan says that HAProxy supports enough of the HTTP spec bits that Hoodie relies on that it can work well.
+The "domain-to-unique-port-mapper" listens to http requests on a wildcard domain (e.g. `*.hoodies.moz.whatever`), and maps (`app.user.subdomain:80`) requests to exist-only-on-the-container-ship ports which docker creates, and which map inside the containers to `:80` or whatever port hoodie talks to.  Jan says that HAProxy supports enough of the HTTP spec bits that Hoodie relies on that it can work well.
 
 TODO: figure out who gets to clean up unused containers, policy therefore, and whether there's a /deprovision API.
