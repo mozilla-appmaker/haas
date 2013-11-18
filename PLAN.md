@@ -1,5 +1,29 @@
 This repo hopes to be the service provisioner for backend services for data-backed components.
 
+```
+      __________________________
+     |.-----------..-----------.|
+     ||           ||           ||
+     ||           ||           ||
+     ||           ||           ||
+     ||           ||           ||
+     ||_          ||           ||
+     || '.        ||           ||
+     |||\ \       ||           ||
+     ||;_\_;______||___________||
+     ||--,-.------..-----------.|
+     || \| |    _.||"'--.      ||
+     ||\ | | _." .||-"_) `)    ||
+     ||_)  `"  .-.|| __.-'     ||
+     ||       (   ||`          ||
+     ||  ' .  |   ||           ||
+     ||  ()    \  || .-.       ||
+     ||\/_     | _||' _;\      ||
+     ||_`_____/_'_||____/______||
+     '---------------------jgs--'
+ 
+```
+
 This service will have a privileged relationship with the Appmaker app (via a shared secret).  People who want to run their own Appmaker instance can run an instance of Haas as well.
 
 Haas's job is to provision Hoodie endpoints.  Hoodie-using components will be configured by the Appmaker designer with a Hoodie endpoint (HEP) provisioned by Haas, but if someone wants to configure their Appmaker component to use a distinct Hoodie endpoint, that's fine too.
